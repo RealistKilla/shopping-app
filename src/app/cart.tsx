@@ -7,13 +7,14 @@
  * In Phase 2, this will import and render the cart view from `features/cart/`.
  */
 
-import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from "react-native";
 
 export default function CartScreen() {
   return (
     <View className="flex-1 items-center justify-center bg-background">
-      <Text className="text-body-lg text-on-surface">Shopping Cart Placeholder (Phase 2)</Text>
+      <Text className="text-body-lg text-on-surface">
+        Shopping Cart Placeholder (Phase 2)
+      </Text>
     </View>
   );
 }
