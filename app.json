@@ -37,6 +37,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d24ec34c-12c0-460a-85a4-5721f8be1ecf"
+      }
+    },
+    "owner": "tylerthomass-team"
   }
 }
