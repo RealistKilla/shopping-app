@@ -20,13 +20,7 @@ import { useToast } from "@/shared/hooks/useToast";
 import AddToCartSection from "../components/AddToCartSection";
 import NoProducts from "../components/NoProducts";
 import ProductInformation from "../components/ProductInformation";
-
-// A generic subtle blurhash to use as a placeholder while network images load
-
-export interface ProductDetailScreenProps {
-  /** The ID of the product to display, extracted from the route params */
-  productId: string;
-}
+import { ProductDetailScreenProps } from "../types";
 
 export function ProductDetailScreen({ productId }: ProductDetailScreenProps) {
   // We only need the actions here, so we use useCartActions to avoid

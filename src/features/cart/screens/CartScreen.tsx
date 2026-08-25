@@ -10,7 +10,7 @@
  * @module features/cart/screens/CartScreen
  */
 
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { FlatList, ListRenderItem, Pressable, Text, View } from "react-native";
 
 // Feature Imports
@@ -56,7 +56,7 @@ export function CartScreen() {
         initialNumToRender={8}
         maxToRenderPerBatch={8}
         windowSize={5}
-        removeClippedSubviews={true}
+        removeClippedSubviews
       />
 
       {/* 

@@ -13,13 +13,15 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
-export function CartBadge() {
+const CartBadge = () => {
   const router = useRouter();
   const count = useCartCount();
 
   const handlePress = () => {
     router.push("/cart");
   };
+
+  const currentCount = count > 99 ? "99+" : count;
 
   return (
     <Pressable
@@ -37,10 +39,12 @@ export function CartBadge() {
       {count > 0 && (
         <View className="absolute top-0 right-0 bg-error rounded-full min-w-[20px] h-5 items-center justify-center px-1 border-2 border-background">
           <Text className="text-[10px] text-on-error font-bold">
-            {count > 99 ? "99+" : count}
+            {currentCount}
           </Text>
         </View>
       )}
     </Pressable>
   );
 }
+
+export default CartBadge;

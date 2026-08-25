@@ -9,26 +9,15 @@
  * @module features/cart/components/CartItem
  */
 
-import React from "react";
 import { PRODUCT_IMAGE_BLURHASH } from "@/shared/catalog/constants";
-import { ProductId } from "@/shared/catalog/types";
 import { Image } from "expo-image";
+import { memo } from "react";
 import { Pressable, Text, View } from "react-native";
-import { type CartItem as CartItemType } from "../types";
+import { CartItemProps } from "../types";
 import { QuantitySelector } from "./QuantitySelector";
 
-export interface CartItemProps {
-  /** The cart item domain model (includes product details and quantity) */
-  item: CartItemType;
-  /** Callback fired when the minus button is pressed */
-  onDecrement: (productId: ProductId) => void;
-  /** Callback fired when the plus button is pressed */
-  onIncrement: (productId: ProductId) => void;
-  /** Callback fired when the user taps to remove the item entirely */
-  onRemove: (productId: ProductId) => void;
-}
 
-export const CartItem = React.memo(({
+export const CartItem = memo(({
   item,
   onDecrement,
   onIncrement,

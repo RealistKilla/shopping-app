@@ -1,3 +1,18 @@
+/**
+ * =============================================================================
+ * app/_layout.tsx - Root Application Layout
+ * =============================================================================
+ *
+ * The primary layout wrapper for the entire Expo application.
+ * This file is responsible for:
+ *  - Initializing the global theme (Dark/Light mode via React Navigation).
+ *  - Configuring the root Expo Router Stack navigation.
+ *  - Rendering global UI overlays (e.g., the Toast notification system).
+ *  - Managing the native splash screen during the NativeWind hydration phase.
+ *
+ * @module app/_layout
+ */
+
 import "../global.css";
 
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
@@ -5,14 +20,16 @@ import * as SplashScreen from "expo-splash-screen"; // Control the native splash
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 
-import { Toast } from "@/shared/components/Toast";
-import { CartBadge } from "@/shared/components/CartBadge";
+import { CartBadge, Toast } from "@/shared/components";
 
 // Instruct Expo to hold the splash screen visible during the NativeWind injection phase
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const backgroundColor = colorScheme === "dark" ? "#000" : "#fff";
+  const headerTintColor = colorScheme === "dark" ? "#fff" : "#000";
+  const theme = colorScheme === "dark" ? DarkTheme : DefaultTheme;
 
   useEffect(() => {
     // Dismiss the loading splash screen once the NativeWind style layer hydrates and mounts
@@ -22,13 +39,13 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={theme}>
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: colorScheme === "dark" ? "#000" : "#fff",
+            backgroundColor,
           },
-          headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+          headerTintColor,
           headerRight: () => <CartBadge />,
         }}
       >

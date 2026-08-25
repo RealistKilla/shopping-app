@@ -11,17 +11,8 @@
  */
 
 import { Pressable, Text, View } from "react-native";
+import { QuantitySelectorProps } from "../types";
 
-export interface QuantitySelectorProps {
-  /** The current numeric quantity to display */
-  quantity: number;
-  /** Callback fired when the minus button is pressed */
-  onDecrement: () => void;
-  /** Callback fired when the plus button is pressed */
-  onIncrement: () => void;
-  /** Disable the entire selector (e.g. while mutating) */
-  disabled?: boolean;
-}
 
 export function QuantitySelector({
   quantity,

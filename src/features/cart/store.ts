@@ -58,7 +58,7 @@ export const useCartStore = create<CartStore>((set) => ({
 
   remove: (productId) =>
     set((state) => {
-      const { [productId]: removedItem, ...remainingItems } = state.items;
+      const { [productId]: _, ...remainingItems } = state.items;
       return { items: remainingItems };
     }),
 
@@ -87,7 +87,7 @@ export const useCartStore = create<CartStore>((set) => ({
 
       if (item.quantity <= 1) {
         // If quantity would drop to 0, remove it entirely
-        const { [productId]: removedItem, ...remainingItems } = state.items;
+        const { [productId]: _, ...remainingItems } = state.items;
         return { items: remainingItems };
       }
 

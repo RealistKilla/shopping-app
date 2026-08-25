@@ -97,3 +97,25 @@ export interface CartActions {
  * The complete Zustand store type, combining state and actions.
  */
 export type CartStore = CartState & CartActions;
+
+export interface CartItemProps {
+  /** The cart item domain model (includes product details and quantity) */
+  item: CartItem;
+  /** Callback fired when the minus button is pressed */
+  onDecrement: (productId: ProductId) => void;
+  /** Callback fired when the plus button is pressed */
+  onIncrement: (productId: ProductId) => void;
+  /** Callback fired when the user taps to remove the item entirely */
+  onRemove: (productId: ProductId) => void;
+}
+
+export interface QuantitySelectorProps {
+  /** The current numeric quantity to display */
+  quantity: number;
+  /** Callback fired when the minus button is pressed */
+  onDecrement: () => void;
+  /** Callback fired when the plus button is pressed */
+  onIncrement: () => void;
+  /** Disable the entire selector (e.g. while mutating) */
+  disabled?: boolean;
+}

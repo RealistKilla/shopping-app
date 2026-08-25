@@ -10,7 +10,7 @@ const EmptyCart = () => {
         Your cart is empty
       </Text>
       <Text className="text-body-lg text-on-surface-variant text-center mb-lg">
-        Looks like you haven't added anything to your cart yet.
+        Looks like you haven&apos;t added anything to your cart yet.
       </Text>
       <Pressable
         onPress={() => router.push("/")}
