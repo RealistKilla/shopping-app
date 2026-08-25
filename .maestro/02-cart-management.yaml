@@ -1,0 +1,40 @@
+appId: ${APP_ID}
+---
+# 1. Launch the app
+- launchApp:
+    clearState: true
+
+# 2. Add an item from the main screen
+- assertVisible: "Ceramic Pour-Over Set"
+- tapOn:
+    id: "Add Ceramic Pour-Over Set to cart"
+
+# 3. Open the Cart
+- tapOn:
+    id: "Cart with 1 items"
+- assertVisible: "Your Cart"
+
+# 4. Increment the quantity
+- tapOn:
+    id: "Increase quantity"
+- assertVisible: "2" # The quantity text should update to 2
+
+# 5. Decrement the quantity back to 1
+- tapOn:
+    id: "Decrease quantity"
+- assertVisible: "1"
+
+# 6. Remove the item entirely from the cart
+- tapOn: "Remove"
+
+# 7. Verify the Empty Cart state
+- assertVisible: "Your cart is empty"
+- assertVisible: "Looks like you haven't added anything yet."
+
+# 8. Use the empty state action to return home
+- tapOn: "Start Shopping"
+
+# 9. Verify we are back on the main listing screen
+- assertVisible: "Minimal Desk Lamp"
+- assertVisible:
+    id: "Cart with 0 items"
