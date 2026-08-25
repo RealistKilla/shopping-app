@@ -7,9 +7,8 @@
  * Renders the `<ProductDetailScreen />` from `features/product-view/`.
  */
 
-import React from "react";
-import { useLocalSearchParams } from "expo-router";
 import { ProductDetailScreen } from "@/features/product-view";
+import { useLocalSearchParams } from "expo-router";
 
 export default function ProductDetailRoute() {
   // Extract the dynamic 'id' segment from the URL

@@ -41,7 +41,7 @@ export interface CartItem {
  * This enables O(1) lookups for updating quantities, removing items, 
  * or checking if an item already exists in the cart.
  */
-export interface CartState {
+ interface CartState {
   /** 
    * A dictionary of cart items, keyed by their product ID. 
    */
