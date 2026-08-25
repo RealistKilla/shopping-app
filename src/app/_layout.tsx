@@ -1,3 +1,18 @@
+/**
+ * =============================================================================
+ * app/_layout.tsx - Root Application Layout
+ * =============================================================================
+ *
+ * The primary layout wrapper for the entire Expo application.
+ * This file is responsible for:
+ *  - Initializing the global theme (Dark/Light mode via React Navigation).
+ *  - Configuring the root Expo Router Stack navigation.
+ *  - Rendering global UI overlays (e.g., the Toast notification system).
+ *  - Managing the native splash screen during the NativeWind hydration phase.
+ *
+ * @module app/_layout
+ */
+
 import "../global.css";
 
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
@@ -5,8 +20,8 @@ import * as SplashScreen from "expo-splash-screen"; // Control the native splash
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 
-import { Toast } from "@/shared/components/Toast";
 import { CartBadge } from "@/shared/components/CartBadge";
+import { Toast } from "@/shared/components/Toast";
 
 // Instruct Expo to hold the splash screen visible during the NativeWind injection phase
 SplashScreen.preventAutoHideAsync();

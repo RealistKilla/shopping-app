@@ -17,9 +17,9 @@ import { useCartActions } from "@/features/cart/hooks/useCart";
 import { getProductById } from "@/shared/catalog/data";
 import { ProductId } from "@/shared/catalog/types";
 import { useToast } from "@/shared/hooks/useToast";
-import AddToCartSection from "../components/AddToCartSection";
-import NoProducts from "../components/NoProducts";
-import ProductInformation from "../components/ProductInformation";
+import { AddToCartSection } from "../components/AddToCartSection";
+import { NoProducts } from "../components/NoProducts";
+import { ProductInformation } from "../components/ProductInformation";
 
 // A generic subtle blurhash to use as a placeholder while network images load
 

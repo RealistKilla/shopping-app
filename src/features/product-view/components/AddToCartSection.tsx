@@ -1,12 +1,26 @@
+/**
+ * =============================================================================
+ * features/product-view/components/AddToCartSection.tsx
+ * =============================================================================
+ *
+ * A pinned bottom bar containing the primary "Add to Cart" action for the 
+ * product detail screen. It sits on top of the scrollable content to ensure 
+ * the action is always accessible to the user.
+ *
+ * @module features/product-view/components/AddToCartSection
+ */
+
+import React from "react";
 import { Pressable, Text, View } from "react-native";
-interface AddToCartSectionProps {
+
+export interface AddToCartSectionProps {
   /** Callback fired when the "Add to Cart" button is pressed */
   onPress: () => void;
   /** The name of the product being added to the cart (for accessibility) */
   productName: string;
 }
 
-const AddToCartSection = ({ onPress, productName }: AddToCartSectionProps) => {
+export const AddToCartSection = ({ onPress, productName }: AddToCartSectionProps) => {
   {
     /* 
         Pinned Bottom Bar for Add to Cart

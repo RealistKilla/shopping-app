@@ -1,9 +1,23 @@
-import { BLURHASH } from "@/features/product-listing/constants";
-import { Product } from "@/shared/catalog/types";
+/**
+ * =============================================================================
+ * features/product-view/components/ProductInformation.tsx
+ * =============================================================================
+ *
+ * A presentational component that renders the core details of a product,
+ * including a large 1:1 aspect ratio image, pricing, and description text.
+ * It is wrapped in a ScrollView to allow scrolling past the large image.
+ *
+ * @module features/product-view/components/ProductInformation
+ */
+
 import { Image } from "expo-image";
 import { ScrollView, Text, View } from "react-native";
 
-const ProductInformation = ({ product }: { product: Product }) => {
+import { BLURHASH } from "@/features/product-listing/constants";
+import { ProductInformationProps } from "../types";
+
+
+export const ProductInformation = ({ product }: ProductInformationProps) => {
   return (
     <ScrollView
       className="flex-1"

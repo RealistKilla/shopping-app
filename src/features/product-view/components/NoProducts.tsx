@@ -1,8 +1,22 @@
+/**
+ * =============================================================================
+ * features/product-view/components/NoProducts.tsx
+ * =============================================================================
+ *
+ * A fallback UI component displayed when a user navigates to a product detail 
+ * route with an invalid or non-existent product ID. Provides a helpful message 
+ * and a way to navigate back to the previous screen.
+ *
+ * @module features/product-view/components/NoProducts
+ */
+
+import React from "react";
 import { useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
-const NoProducts = () => {
+export const NoProducts = () => {
   const router = useRouter();
+  
   return (
     <View className="flex-1 items-center justify-center bg-background p-lg">
       <Text className="text-headline-lg text-on-background text-center mb-md">
@@ -22,5 +36,3 @@ const NoProducts = () => {
     </View>
   );
 };
-
-export default NoProducts;
