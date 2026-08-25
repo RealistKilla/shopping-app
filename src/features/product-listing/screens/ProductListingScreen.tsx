@@ -10,7 +10,8 @@
  */
 
 import { useRouter } from "expo-router";
-import { FlatList, StyleSheet, View } from "react-native";
+import React, { useCallback } from "react";
+import { FlatList, ListRenderItem, StyleSheet, View } from "react-native";
 
 // Feature Imports
 import { ProductCard } from "../components/ProductCard";
@@ -29,15 +30,25 @@ export function ProductListingScreen() {
   const { add: addToCart } = useCartActions();
   const toast = useToast();
 
-  const handleProductPress = (product: Product) => {
+  const handleProductPress = useCallback((product: Product) => {
     // Navigate to the dynamic product detail route
     router.push(`/product/${product.id}`);
-  };
+  }, [router]);
 
-  const handleAddToCart = (product: Product) => {
+  const handleAddToCart = useCallback((product: Product) => {
     addToCart(product);
     toast.show("Added to cart");
-  };
+  }, [addToCart, toast]);
+
+  const renderItem: ListRenderItem<Product> = useCallback(({ item }) => (
+    <View className="flex-1 max-w-[50%]">
+      <ProductCard
+        product={item}
+        onPress={handleProductPress}
+        onAddToCart={handleAddToCart}
+      />
+    </View>
+  ), [handleProductPress, handleAddToCart]);
 
   return (
     <View className="flex-1 bg-background">
@@ -47,15 +58,12 @@ export function ProductListingScreen() {
         numColumns={2}
         contentContainerStyle={styles.listContent}
         columnWrapperStyle={styles.columnWrapper}
-        renderItem={({ item }) => (
-          <View className="flex-1 max-w-[50%]">
-            <ProductCard
-              product={item}
-              onPress={handleProductPress}
-              onAddToCart={handleAddToCart}
-            />
-          </View>
-        )}
+        renderItem={renderItem}
+        // Performance optimizations
+        initialNumToRender={6}
+        maxToRenderPerBatch={6}
+        windowSize={5}
+        removeClippedSubviews={true}
       />
     </View>
   );

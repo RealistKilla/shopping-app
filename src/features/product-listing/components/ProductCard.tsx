@@ -13,12 +13,13 @@
  * @module features/product-listing/components/ProductCard
  */
 
+import React from "react";
 import { Image } from "expo-image";
 import { Pressable, Text, View } from "react-native";
 import { BLURHASH } from "../constants";
 import { ProductCardProps } from "../types";
 
-export const ProductCard = ({
+export const ProductCard = React.memo(({
   product,
   onPress,
   onAddToCart,
@@ -75,4 +76,4 @@ export const ProductCard = ({
       </View>
     </Pressable>
   );
-};
+});

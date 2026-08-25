@@ -9,6 +9,7 @@
  * @module features/cart/components/CartItem
  */
 
+import React from "react";
 import { PRODUCT_IMAGE_BLURHASH } from "@/shared/catalog/constants";
 import { ProductId } from "@/shared/catalog/types";
 import { Image } from "expo-image";
@@ -27,12 +28,12 @@ export interface CartItemProps {
   onRemove: (productId: ProductId) => void;
 }
 
-export function CartItem({
+export const CartItem = React.memo(({
   item,
   onDecrement,
   onIncrement,
   onRemove,
-}: CartItemProps) {
+}: CartItemProps) => {
   const { product, quantity } = item;
 
   return (
@@ -89,4 +90,4 @@ export function CartItem({
       </View>
     </View>
   );
-}
+});

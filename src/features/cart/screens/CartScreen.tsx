@@ -10,18 +10,29 @@
  * @module features/cart/screens/CartScreen
  */
 
-import { FlatList, Pressable, Text, View } from "react-native";
+import React, { useCallback } from "react";
+import { FlatList, ListRenderItem, Pressable, Text, View } from "react-native";
 
 // Feature Imports
 import { CartItem } from "../components/CartItem";
 import EmptyCart from "../components/EmptyCart";
 import { useCartActions, useCartItems, useCartTotal } from "../hooks/useCart";
+import { CartItem as CartItemType } from "../types";
 
 export function CartScreen() {
   // Zustand Subscriptions
   const items = useCartItems();
   const total = useCartTotal();
   const { incrementQty, decrementQty, remove } = useCartActions();
+
+  const renderItem: ListRenderItem<CartItemType> = useCallback(({ item }) => (
+    <CartItem
+      item={item}
+      onIncrement={incrementQty}
+      onDecrement={decrementQty}
+      onRemove={remove}
+    />
+  ), [incrementQty, decrementQty, remove]);
 
   // ---------------------------------------------------------------------------
   // Empty State
@@ -40,14 +51,12 @@ export function CartScreen() {
         keyExtractor={(item) => item.product.id}
         // Add padding bottom so the last item isn't hidden by the footer
         contentContainerStyle={{ paddingBottom: 16 }}
-        renderItem={({ item }) => (
-          <CartItem
-            item={item}
-            onIncrement={incrementQty}
-            onDecrement={decrementQty}
-            onRemove={remove}
-          />
-        )}
+        renderItem={renderItem}
+        // Performance optimizations
+        initialNumToRender={8}
+        maxToRenderPerBatch={8}
+        windowSize={5}
+        removeClippedSubviews={true}
       />
 
       {/* 
