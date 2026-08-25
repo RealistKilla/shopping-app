@@ -19,3 +19,4 @@ import { ProductId } from "./types";
 export const createProductId = (id: string): ProductId => {
   return id as ProductId;
 };
+
