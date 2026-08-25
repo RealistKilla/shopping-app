@@ -1,9 +1,22 @@
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
-import { useColorScheme } from "react-native";
 import "../global.css";
+
+import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
+import * as SplashScreen from "expo-splash-screen"; // Control the native splash screen visibility state
+import { useEffect } from "react";
+import { useColorScheme } from "react-native";
+
+// Instruct Expo to hold the splash screen visible during the NativeWind injection phase
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+
+  useEffect(() => {
+    // Dismiss the loading splash screen once the NativeWind style layer hydrates and mounts
+    SplashScreen.hideAsync().catch(() => {
+      /* Prevent unhandled promise rejections if called concurrently */
+    });
+  }, []);
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
