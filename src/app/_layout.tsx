@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 
 import { Toast } from "@/shared/components/Toast";
+import { CartBadge } from "@/shared/components/CartBadge";
 
 // Instruct Expo to hold the splash screen visible during the NativeWind injection phase
 SplashScreen.preventAutoHideAsync();
@@ -28,27 +29,28 @@ export default function RootLayout() {
             backgroundColor: colorScheme === "dark" ? "#000" : "#fff",
           },
           headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+          headerRight: () => <CartBadge />,
         }}
       >
         <Stack.Screen
           name="index"
           options={{
             title: "Indigo Shop",
-            // Cart badge will go here in Phase 3
           }}
         />
         <Stack.Screen
           name="product/[id]"
           options={{
             title: "Product Details",
-            // We can configure dynamic titles later based on product name
           }}
         />
         <Stack.Screen
           name="cart"
           options={{
             title: "Shopping Cart",
-            presentation: "modal", // Common pattern for cart
+            presentation: "modal",
+            // We don't need the cart badge on the cart screen itself
+            headerRight: () => null,
           }}
         />
       </Stack>
