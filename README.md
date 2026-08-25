@@ -95,14 +95,40 @@ src/
     └── hooks/            # Global hooks (useToast)
 ```
 
-## 🧹 Code Quality
+## 🧹 Linting & Code Quality
 
 This project is configured with a strict linting setup to ensure clean code:
-- **ESLint** (with Shopify's opinionated plugin)
-- **Prettier** (with NativeWind class sorting)
-- **TypeScript** (strict mode enabled)
+- **ESLint**: Utilizes the highly opinionated `@shopify/eslint-plugin` to enforce industry-standard best practices, React hooks rules, and consistent import ordering.
+- **Prettier**: Pre-configured with the `prettier-plugin-tailwindcss` to automatically sort your NativeWind classes, ensuring styling strings are always organized consistently.
+- **TypeScript**: Strict mode enabled across the entire repository to guarantee type safety for Zustand stores, components, and catalog data.
 
-To run the linter:
+To run the linter manually:
 ```bash
 yarn lint
 ```
+
+---
+
+## 🧪 Testing
+
+We believe in high-value, resilient testing. Our test suite covers everything from isolated business logic to full end-to-end user flows.
+
+### Unit Testing (Jest)
+We use **Jest** alongside `@testing-library/react-native` to test our state, hooks, and core components.
+- **Scope:** Covers Zustand stores (`useCartStore`, `useToast`), computed selectors, dummy data fallbacks, and UI components (e.g. `CartBadge`).
+- **Run Unit Tests:**
+  ```bash
+  yarn test
+  ```
+- **Run Unit Tests in Watch Mode:**
+  ```bash
+  yarn test:watch
+  ```
+
+### End-to-End Testing (Maestro)
+We use **Maestro** for robust, black-box E2E testing. Unlike traditional Detox tests, Maestro tests are written in easy-to-read YAML flows located in the `.maestro/` directory.
+- **Scope:** Tests our most critical conversion paths, such as navigating the product grid, adding items to the cart, modifying quantities, removing items, and verifying global Toast notifications.
+- **Run E2E Tests:** *(Requires the Maestro CLI and a running Simulator/Emulator)*
+  ```bash
+  yarn test:e2e
+  ```
