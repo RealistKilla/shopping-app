@@ -4,24 +4,17 @@
  * =============================================================================
  *
  * Thin delegator component for the product detail route ("/product/[id]").
- * In Phase 2, this will import and render `<ProductDetail />` from
- * `features/product-view/`.
+ * Renders the `<ProductDetailScreen />` from `features/product-view/`.
  */
 
+import React from "react";
 import { useLocalSearchParams } from "expo-router";
-import { Text, View } from "react-native";
+import { ProductDetailScreen } from "@/features/product-view";
 
-export default function ProductDetailScreen() {
+export default function ProductDetailRoute() {
+  // Extract the dynamic 'id' segment from the URL
   const { id } = useLocalSearchParams<{ id: string }>();
 
-  return (
-    <View className="flex-1 items-center justify-center bg-background">
-      <Text className="text-body-lg text-on-surface">
-        Product Detail Placeholder (Phase 2)
-      </Text>
-      <Text className="mt-sm text-body-md text-on-surface-variant">
-        Product ID: {id}
-      </Text>
-    </View>
-  );
+  // Pass it to the feature component
+  return <ProductDetailScreen productId={id} />;
 }
