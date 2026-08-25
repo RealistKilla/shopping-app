@@ -19,6 +19,7 @@ import { ProductCard } from "../components/ProductCard";
 import { useCartActions } from "@/features/cart/hooks/useCart";
 import { PRODUCTS } from "@/shared/catalog/data";
 import { Product } from "@/shared/catalog/types";
+import { useToast } from "@/shared/hooks/useToast";
 
 export function ProductListingScreen() {
   const router = useRouter();
@@ -26,6 +27,7 @@ export function ProductListingScreen() {
   // We only need the actions here, so we use useCartActions to avoid
   // re-rendering this entire grid every time the cart state changes.
   const { add: addToCart } = useCartActions();
+  const toast = useToast();
 
   const handleProductPress = (product: Product) => {
     // Navigate to the dynamic product detail route
@@ -34,6 +36,7 @@ export function ProductListingScreen() {
 
   const handleAddToCart = (product: Product) => {
     addToCart(product);
+    toast.show("Added to cart");
   };
 
   return (
