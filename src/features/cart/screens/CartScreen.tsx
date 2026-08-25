@@ -69,7 +69,7 @@ export function CartScreen() {
             Subtotal
           </Text>
           <Text className="text-headline-lg text-primary">
-            ${total.toFixed(2)}
+            R{total.toFixed(2)}
           </Text>
         </View>
 

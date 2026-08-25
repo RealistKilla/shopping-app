@@ -1,6 +1,6 @@
-# Indigo Commerce - React Native App
+# My Store - React Native App
 
-A modern, high-performance e-commerce shopping application built with React Native and Expo. It features a curated product catalog, a seamless cart experience, and smooth, responsive animations following the "Indigo Commerce" design system.
+A modern, high-performance e-commerce shopping application built with React Native and Expo. It features a curated product catalog, a seamless cart experience, and smooth, responsive animations following the "My Store" design system.
 
 ## Features
 
@@ -14,7 +14,7 @@ A modern, high-performance e-commerce shopping application built with React Nati
 
 ## 🛠 Tech Stack & Rationale
 
-We've selected a lightweight, modern stack designed for speed, developer experience, and scalability:
+I've selected a lightweight, modern stack designed for speed, developer experience, and scalability:
 
 - **[Expo (v57)](https://expo.dev/) & [Expo Router](https://docs.expo.dev/router/introduction/)**
   - **Reason:** Provides a zero-configuration, Next.js-like file-based routing system. It eliminates standard React Navigation boilerplate, handles deep-linking effortlessly, and allows for rapid UI iterations.
@@ -111,10 +111,10 @@ yarn lint
 
 ## 🧪 Testing
 
-We believe in high-value, resilient testing. Our test suite covers everything from isolated business logic to full end-to-end user flows.
+I believe in high-value, resilient testing. My test suite covers everything from isolated business logic to full end-to-end user flows.
 
 ### Unit Testing (Jest)
-We use **Jest** alongside `@testing-library/react-native` to test our state, hooks, and core components.
+I use **Jest** alongside `@testing-library/react-native` to test state, hooks, and core components.
 - **Scope:** Covers Zustand stores (`useCartStore`, `useToast`), computed selectors, dummy data fallbacks, and UI components (e.g. `CartBadge`).
 - **Run Unit Tests:**
   ```bash
@@ -126,8 +126,8 @@ We use **Jest** alongside `@testing-library/react-native` to test our state, hoo
   ```
 
 ### End-to-End Testing (Maestro)
-We use **Maestro** for robust, black-box E2E testing. Unlike traditional Detox tests, Maestro tests are written in easy-to-read YAML flows located in the `.maestro/` directory.
-- **Scope:** Tests our most critical conversion paths, such as navigating the product grid, adding items to the cart, modifying quantities, removing items, and verifying global Toast notifications.
+I use **Maestro** for robust, black-box E2E testing. Unlike traditional Detox tests, Maestro tests are written in easy-to-read YAML flows located in the `.maestro/` directory.
+- **Scope:** Tests the most critical conversion paths, such as navigating the product grid, adding items to the cart, modifying quantities, removing items, and verifying global Toast notifications.
 - **Run E2E Tests:** *(Requires the Maestro CLI and a running Simulator/Emulator)*
   ```bash
   yarn test:e2e

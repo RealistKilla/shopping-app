@@ -52,7 +52,7 @@ export const CartItem = memo(({
           {product.name}
         </Text>
         <Text className="text-price-tag text-primary">
-          ${product.price.toFixed(2)}
+          R{product.price.toFixed(2)}
         </Text>
 
         {/* Subtle remove link */}
