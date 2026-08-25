@@ -1,6 +1,6 @@
-# Indigo Commerce - React Native App
+# My Store - React Native App
 
-A modern, high-performance e-commerce shopping application built with React Native and Expo. It features a curated product catalog, a seamless cart experience, and smooth, responsive animations following the "Indigo Commerce" design system.
+A modern, high-performance e-commerce shopping application built with React Native and Expo. It features a curated product catalog, a seamless cart experience, and smooth, responsive animations following the "My Store" design system.
 
 ## Features
 
@@ -14,7 +14,7 @@ A modern, high-performance e-commerce shopping application built with React Nati
 
 ## 🛠 Tech Stack & Rationale
 
-We've selected a lightweight, modern stack designed for speed, developer experience, and scalability:
+I've selected a lightweight, modern stack designed for speed, developer experience, and scalability:
 
 - **[Expo (v57)](https://expo.dev/) & [Expo Router](https://docs.expo.dev/router/introduction/)**
   - **Reason:** Provides a zero-configuration, Next.js-like file-based routing system. It eliminates standard React Navigation boilerplate, handles deep-linking effortlessly, and allows for rapid UI iterations.
@@ -95,14 +95,40 @@ src/
     └── hooks/            # Global hooks (useToast)
 ```
 
-## 🧹 Code Quality
+## 🧹 Linting & Code Quality
 
 This project is configured with a strict linting setup to ensure clean code:
-- **ESLint** (with Shopify's opinionated plugin)
-- **Prettier** (with NativeWind class sorting)
-- **TypeScript** (strict mode enabled)
+- **ESLint**: Utilizes the highly opinionated `@shopify/eslint-plugin` to enforce industry-standard best practices, React hooks rules, and consistent import ordering.
+- **Prettier**: Pre-configured with the `prettier-plugin-tailwindcss` to automatically sort your NativeWind classes, ensuring styling strings are always organized consistently.
+- **TypeScript**: Strict mode enabled across the entire repository to guarantee type safety for Zustand stores, components, and catalog data.
 
-To run the linter:
+To run the linter manually:
 ```bash
 yarn lint
 ```
+
+---
+
+## 🧪 Testing
+
+I believe in high-value, resilient testing. My test suite covers everything from isolated business logic to full end-to-end user flows.
+
+### Unit Testing (Jest)
+I use **Jest** alongside `@testing-library/react-native` to test state, hooks, and core components.
+- **Scope:** Covers Zustand stores (`useCartStore`, `useToast`), computed selectors, dummy data fallbacks, and UI components (e.g. `CartBadge`).
+- **Run Unit Tests:**
+  ```bash
+  yarn test
+  ```
+- **Run Unit Tests in Watch Mode:**
+  ```bash
+  yarn test:watch
+  ```
+
+### End-to-End Testing (Maestro)
+I use **Maestro** for robust, black-box E2E testing. Unlike traditional Detox tests, Maestro tests are written in easy-to-read YAML flows located in the `.maestro/` directory.
+- **Scope:** Tests the most critical conversion paths, such as navigating the product grid, adding items to the cart, modifying quantities, removing items, and verifying global Toast notifications.
+- **Run E2E Tests:** *(Requires the Maestro CLI and a running Simulator/Emulator)*
+  ```bash
+  yarn test:e2e
+  ```

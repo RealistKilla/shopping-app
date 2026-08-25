@@ -1,5 +1,5 @@
 ---
-name: Indigo Commerce
+name: My Store
 colors:
   surface: '#f9f9ff'
   surface-dim: '#cfdaf2'

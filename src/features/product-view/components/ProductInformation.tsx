@@ -40,7 +40,7 @@ const ProductInformation = ({ product }: ProductInformationProps) => {
             {product.name}
           </Text>
           <Text className="text-display-price text-primary">
-            ${product.price.toFixed(2)}
+            R{product.price.toFixed(2)}
           </Text>
         </View>
 

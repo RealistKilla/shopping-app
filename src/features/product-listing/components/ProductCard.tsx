@@ -52,7 +52,7 @@ export const ProductCard = React.memo(({
             {product.name}
           </Text>
           <Text className="text-price-tag text-primary mt-xs">
-            ${product.price.toFixed(2)}
+            R{product.price.toFixed(2)}
           </Text>
         </View>
 
