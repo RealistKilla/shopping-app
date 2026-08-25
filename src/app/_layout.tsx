@@ -5,6 +5,8 @@ import * as SplashScreen from "expo-splash-screen"; // Control the native splash
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 
+import { Toast } from "@/shared/components/Toast";
+
 // Instruct Expo to hold the splash screen visible during the NativeWind injection phase
 SplashScreen.preventAutoHideAsync();
 
@@ -50,6 +52,7 @@ export default function RootLayout() {
           }}
         />
       </Stack>
+      <Toast />
     </ThemeProvider>
   );
 }
