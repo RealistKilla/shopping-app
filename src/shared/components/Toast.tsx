@@ -26,23 +26,26 @@ export function Toast() {
 
   // Animation values
   const opacity = useSharedValue(0);
-  const translateY = useSharedValue(-50); // Start slightly above
+  const translateY = useSharedValue(50); // Start slightly below
 
   useEffect(() => {
     if (isVisible) {
-      // Slide down and fade in
+      // Slide up and fade in
       opacity.value = withTiming(1, {
         duration: 200,
         easing: Easing.out(Easing.ease),
       });
-      translateY.value = withSpring(0, { damping: 15, stiffness: 100 });
+      translateY.value = withSpring(0, {
+        damping: 15,
+        stiffness: 100,
+      });
     } else {
-      // Slide up and fade out
+      // Slide down and fade out
       opacity.value = withTiming(0, {
         duration: 200,
         easing: Easing.in(Easing.ease),
       });
-      translateY.value = withTiming(-50, {
+      translateY.value = withTiming(50, {
         duration: 200,
         easing: Easing.in(Easing.ease),
       });
@@ -56,24 +59,21 @@ export function Toast() {
     };
   });
 
-  // We always render the Animated.View but it becomes transparent and non-interactive
-  // when isVisible is false. We use pointerEvents="none" to let touches pass through.
   return (
     <Animated.View
       pointerEvents="none"
       style={[
         {
           position: "absolute",
-          top: insets.top + 16, // Just below the safe area / header
-          left: 16,
-          right: 16,
-          zIndex: 999, // Ensure it floats above absolutely everything
+          bottom: insets.bottom + 100, // Above bottom buttons/nav
+          alignSelf: "center",
+          zIndex: 999,
         },
         animatedStyle,
       ]}
-      className="bg-primary rounded-lg py-md px-lg shadow-sm flex-row items-center justify-center"
+      className="bg-emerald-100 rounded-full py-3 px-6 shadow-sm flex-row items-center justify-center border border-emerald-200"
     >
-      <Text className="text-body-md text-on-primary font-semibold text-center">
+      <Text className="text-body-md text-emerald-800 font-semibold text-center">
         {message}
       </Text>
     </Animated.View>
