@@ -20,14 +20,16 @@ import * as SplashScreen from "expo-splash-screen"; // Control the native splash
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 
-import { CartBadge } from "@/shared/components/CartBadge";
-import { Toast } from "@/shared/components/Toast";
+import { CartBadge, Toast } from "@/shared/components";
 
 // Instruct Expo to hold the splash screen visible during the NativeWind injection phase
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const backgroundColor = colorScheme === "dark" ? "#000" : "#fff";
+  const headerTintColor = colorScheme === "dark" ? "#fff" : "#000";
+  const theme = colorScheme === "dark" ? DarkTheme : DefaultTheme;
 
   useEffect(() => {
     // Dismiss the loading splash screen once the NativeWind style layer hydrates and mounts
@@ -37,13 +39,13 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={theme}>
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: colorScheme === "dark" ? "#000" : "#fff",
+            backgroundColor,
           },
-          headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+          headerTintColor,
           headerRight: () => <CartBadge />,
         }}
       >

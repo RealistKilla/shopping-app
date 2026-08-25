@@ -18,7 +18,7 @@ import { AddToCartSectionProps } from "../types";
  * This keeps the primary action always accessible regardless of scroll position
  */
 
-export const AddToCartSection = ({ onPress, productName }: AddToCartSectionProps) => {
+const AddToCartSection = ({ onPress, productName }: AddToCartSectionProps) => {
   
   return (
     <View className="absolute bottom-0 left-0 right-0 p-lg bg-background border-t border-outline-variant pt-md pb-xl shadow-sm">

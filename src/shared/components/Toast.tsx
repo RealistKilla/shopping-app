@@ -20,7 +20,7 @@ import Animated, {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useToast } from "../hooks/useToast";
 
-export function Toast() {
+const Toast = () => {
   const { isVisible, message } = useToast();
   const insets = useSafeAreaInsets();
 
@@ -79,3 +79,5 @@ export function Toast() {
     </Animated.View>
   );
 }
+
+export default Toast;

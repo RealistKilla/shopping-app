@@ -32,7 +32,10 @@ module.exports = defineConfig([
       },
     },
     rules: {
-      // 1. Unused Variable Configurations
+      // Disable Shopify's strict component boundary rules to allow for more flexible component structures
+      "@shopify/strict-component-boundaries": "off",
+      
+      // Prevent unused variable and import errors, but allow for unused variables that start with an underscore
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
@@ -46,7 +49,7 @@ module.exports = defineConfig([
         }
       ],
 
-      // 2. React Native & Modern React Environment Overrides
+      // Modern React and JSX relaxations to allow for more flexible component structures
       "react/react-in-jsx-scope": "off",       // Modern JSX transforms don't need React import scope
       "react/display-name": "off",             // Allows quick anonymous component structures
       "@shopify/jsx-no-hardcoded-content": "off", // Stops errors on inline <Text> text strings

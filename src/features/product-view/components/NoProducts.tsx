@@ -13,7 +13,7 @@
 import { useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
-export const NoProducts = () => {
+ const NoProducts = () => {
   const router = useRouter();
   
   return (
@@ -35,3 +35,5 @@ export const NoProducts = () => {
     </View>
   );
 };
+
+export default NoProducts;

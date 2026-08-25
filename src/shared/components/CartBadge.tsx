@@ -21,7 +21,7 @@ const CartBadge = () => {
     router.push("/cart");
   };
 
-  const CURRENT_COUNT = count > 99 ? "99+" : count;
+  const currentCount = count > 99 ? "99+" : count;
 
   return (
     <Pressable
@@ -39,7 +39,7 @@ const CartBadge = () => {
       {count > 0 && (
         <View className="absolute top-0 right-0 bg-error rounded-full min-w-[20px] h-5 items-center justify-center px-1 border-2 border-background">
           <Text className="text-[10px] text-on-error font-bold">
-            {CURRENT_COUNT}
+            {currentCount}
           </Text>
         </View>
       )}
