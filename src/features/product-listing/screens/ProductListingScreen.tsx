@@ -10,7 +10,7 @@
  */
 
 import { useRouter } from "expo-router";
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { FlatList, ListRenderItem, StyleSheet, View } from "react-native";
 
 // Feature Imports
@@ -63,7 +63,7 @@ export function ProductListingScreen() {
         initialNumToRender={6}
         maxToRenderPerBatch={6}
         windowSize={5}
-        removeClippedSubviews={true}
+        removeClippedSubviews
       />
     </View>
   );

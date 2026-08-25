@@ -28,7 +28,7 @@ import { createProductId } from "./utils";
  * that would make sense in a lifestyle/home goods e-commerce context,
  * matching the "Indigo Commerce" design system from Stitch.
  */
-export const PRODUCTS: readonly Product[] = [
+export const PRODUCTS: ReadonlyArray<Product>  = [
   {
     id: createProductId("prod-001"),
     name: "Minimal Desk Lamp",

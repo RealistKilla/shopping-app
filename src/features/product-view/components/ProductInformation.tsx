@@ -17,7 +17,7 @@ import { BLURHASH } from "@/features/product-listing/constants";
 import { ProductInformationProps } from "../types";
 
 
-export const ProductInformation = ({ product }: ProductInformationProps) => {
+const ProductInformation = ({ product }: ProductInformationProps) => {
   return (
     <ScrollView
       className="flex-1"

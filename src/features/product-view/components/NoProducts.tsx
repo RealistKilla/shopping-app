@@ -10,7 +10,6 @@
  * @module features/product-view/components/NoProducts
  */
 
-import React from "react";
 import { useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
@@ -23,7 +22,7 @@ export const NoProducts = () => {
         Product Not Found
       </Text>
       <Text className="text-body-lg text-on-surface-variant text-center mb-lg">
-        We couldn't find the product you're looking for. It may have been
+        We couldn&apos;t find the product you&apos;re looking for. It may have been
         removed or the link is broken.
       </Text>
       <Pressable

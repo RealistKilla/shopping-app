@@ -17,16 +17,14 @@ import { useCartActions } from "@/features/cart/hooks/useCart";
 import { getProductById } from "@/shared/catalog/data";
 import { ProductId } from "@/shared/catalog/types";
 import { useToast } from "@/shared/hooks/useToast";
-import { AddToCartSection } from "../components/AddToCartSection";
+import AddToCartSection from "../components/AddToCartSection";
 import { NoProducts } from "../components/NoProducts";
-import { ProductInformation } from "../components/ProductInformation";
+import ProductInformation from "../components/ProductInformation";
+import { ProductDetailScreenProps } from "../types";
 
 // A generic subtle blurhash to use as a placeholder while network images load
 
-export interface ProductDetailScreenProps {
-  /** The ID of the product to display, extracted from the route params */
-  productId: string;
-}
+
 
 export function ProductDetailScreen({ productId }: ProductDetailScreenProps) {
   // We only need the actions here, so we use useCartActions to avoid
