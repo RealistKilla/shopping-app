@@ -7,8 +7,7 @@
  * Renders the `<ProductListingScreen />` from `features/product-listing/`.
  */
 
-import React from 'react';
-import { ProductListingScreen } from '@/features/product-listing';
+import { ProductListingScreen } from "@/features/product-listing";
 
 export default function IndexScreen() {
   return <ProductListingScreen />;
