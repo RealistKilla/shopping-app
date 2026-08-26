@@ -37,7 +37,8 @@ appId: "host.exp.exponent"
 - assertVisible: "Looks like you haven't added anything to your cart yet."
 
 # 8. Use the empty state action to return home
-- tapOn: "Start Shopping"
+- tapOn: 
+    id: "empty-cart-return-home"
 
 # 9. Verify we are back on the main listing screen
 - assertVisible: 

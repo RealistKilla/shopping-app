@@ -16,6 +16,7 @@ const EmptyCart = () => {
         onPress={() => router.push("/")}
         className="items-center justify-center rounded-lg bg-primary py-md px-lg active:opacity-80"
         accessibilityRole="button"
+        testID="empty-cart-return-home"
       >
         <Text className="text-label-caps text-on-primary">START SHOPPING</Text>
       </Pressable>

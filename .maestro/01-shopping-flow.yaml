@@ -28,8 +28,7 @@ appId: "host.exp.exponent"
     id: "product-view-add-to-cart"
 
 # 8. Navigate back to the listing screen
-- tapOn:
-    id: "Back" # Back button in the header
+- back
 
 # 9. Verify the Cart badge shows 2 items
 - assertVisible:
