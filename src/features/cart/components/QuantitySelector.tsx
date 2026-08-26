@@ -4,7 +4,7 @@
  * =============================================================================
  *
  * A reusable UI component for incrementing and decrementing a quantity.
- * Follows the "Indigo Commerce" design system with subtle borders and
+ * Follows the "My Store" design system with subtle borders and
  * centered text alignment.
  *
  * @module features/cart/components/QuantitySelector

@@ -4,7 +4,7 @@
  * =============================================================================
  *
  * A reusable UI component that displays a single product in a card format.
- * Follows the "Indigo Commerce" design system:
+ * Follows the "My Store" design system:
  *  - 1px outline border instead of shadows
  *  - 16px internal padding
  *  - 4:5 aspect ratio image
@@ -13,8 +13,8 @@
  * @module features/product-listing/components/ProductCard
  */
 
-import React from "react";
 import { Image } from "expo-image";
+import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { BLURHASH } from "../constants";
 import { ProductCardProps } from "../types";

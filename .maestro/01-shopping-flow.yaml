@@ -39,5 +39,6 @@ appId: "host.exp.exponent"
     id: "cart-badge"
 
 # 11. Verify Cart screen contents
-- assertVisible: "Your Cart"
-- assertVisible: "Total:.*" 
+- assertVisible: "Shopping Cart"
+- assertVisible: "Subtotal" 
+- assertVisible: "R*"

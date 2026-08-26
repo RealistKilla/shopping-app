@@ -26,13 +26,13 @@ import { createProductId } from "./utils";
  *
  * Each product has been given a realistic name, price point, and description
  * that would make sense in a lifestyle/home goods e-commerce context,
- * matching the "Indigo Commerce" design system from Stitch.
+ * matching the "My Store" design system from Stitch.
  */
 export const PRODUCTS: ReadonlyArray<Product>  = [
   {
     id: createProductId("prod-001"),
     name: "Minimal Desk Lamp",
-    price: 49.99,
+    price: 249.99,
     description:
       "A sleek, adjustable LED desk lamp with a matte black finish. " +
       "Features three brightness levels and a flexible gooseneck arm " +
@@ -42,7 +42,7 @@ export const PRODUCTS: ReadonlyArray<Product>  = [
   {
     id: createProductId("prod-002"),
     name: "Ceramic Pour-Over Set",
-    price: 34.5,
+    price: 349.5,
     description:
       "Handcrafted ceramic dripper and carafe set for the perfect " +
       "morning pour-over. The ribbed interior guides water flow evenly " +
@@ -52,7 +52,7 @@ export const PRODUCTS: ReadonlyArray<Product>  = [
   {
     id: createProductId("prod-003"),
     name: "Merino Wool Beanie",
-    price: 28.0,
+    price: 149.99,
     description:
       "Soft, breathable merino wool beanie in a classic ribbed knit. " +
       "Naturally temperature-regulating and moisture-wicking — warm " +
@@ -62,7 +62,7 @@ export const PRODUCTS: ReadonlyArray<Product>  = [
   {
     id: createProductId("prod-004"),
     name: "Leather Journal A5",
-    price: 22.95,
+    price: 119.95,
     description:
       "Full-grain leather journal with 192 pages of acid-free, " +
       "dotted paper. Lies flat when open and includes a ribbon " +
@@ -72,7 +72,7 @@ export const PRODUCTS: ReadonlyArray<Product>  = [
   {
     id: createProductId("prod-005"),
     name: "Bluetooth Speaker Mini",
-    price: 59.99,
+    price: 899.99,
     description:
       "Compact waterproof speaker with surprisingly rich, " +
       "360-degree sound. 12-hour battery life and a carabiner clip " +
@@ -82,7 +82,7 @@ export const PRODUCTS: ReadonlyArray<Product>  = [
   {
     id: createProductId("prod-006"),
     name: "Stoneware Planter",
-    price: 18.75,
+    price: 449.75,
     description:
       "Minimalist stoneware planter with a drainage hole and " +
       "matching saucer. The speckled glaze gives each piece a " +

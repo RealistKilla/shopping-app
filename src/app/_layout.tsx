@@ -52,7 +52,7 @@ export default function RootLayout() {
         <Stack.Screen
           name="index"
           options={{
-            title: "Indigo Shop",
+            title: "My Store",
           }}
         />
         <Stack.Screen
