@@ -33,7 +33,7 @@ export const CartItem = memo(({
       */}
       <Image
         source={product.image}
-        placeholder={PRODUCT_IMAGE_BLURHASH}
+        placeholder={{ blurhash: PRODUCT_IMAGE_BLURHASH }}
         contentFit="cover"
         transition={200}
         className="w-20 h-20 rounded-md bg-surface-dim"

@@ -37,7 +37,7 @@ export const ProductCard = React.memo(({
       */}
       <Image
         source={product.image}
-        placeholder={BLURHASH}
+        placeholder={{ blurhash: BLURHASH }}
         contentFit="cover"
         transition={200}
         className="w-full aspect-[4/5] bg-surface-dim"

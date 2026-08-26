@@ -27,7 +27,7 @@ const ProductInformation = ({ product }: ProductInformationProps) => {
       {/* Large 1:1 Product Image */}
       <Image
         source={product.image}
-        placeholder={BLURHASH}
+        placeholder={{ blurhash: BLURHASH }}
         contentFit="cover"
         transition={200}
         className="w-full aspect-square bg-surface-dim"
