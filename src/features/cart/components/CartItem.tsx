@@ -60,6 +60,7 @@ export const CartItem = memo(({
           onPress={() => onRemove(product.id)}
           className="mt-xs active:opacity-60 self-start"
           hitSlop={10}
+          testID={`cart-item-remove-${product.id}`}
         >
           <Text className="text-label-caps text-outline font-normal underline">
             Remove
@@ -75,6 +76,7 @@ export const CartItem = memo(({
           quantity={quantity}
           onDecrement={() => onDecrement(product.id)}
           onIncrement={() => onIncrement(product.id)}
+          testID={`cart-item-quantity-${product.id}`}
         />
       </View>
     </View>

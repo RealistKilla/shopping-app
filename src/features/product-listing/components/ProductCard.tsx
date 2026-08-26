@@ -4,7 +4,7 @@
  * =============================================================================
  *
  * A reusable UI component that displays a single product in a card format.
- * Follows the "Indigo Commerce" design system:
+ * Follows the "My Store" design system:
  *  - 1px outline border instead of shadows
  *  - 16px internal padding
  *  - 4:5 aspect ratio image
@@ -13,8 +13,8 @@
  * @module features/product-listing/components/ProductCard
  */
 
-import React from "react";
 import { Image } from "expo-image";
+import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { BLURHASH } from "../constants";
 import { ProductCardProps } from "../types";
@@ -28,6 +28,7 @@ export const ProductCard = React.memo(({
     <Pressable
       onPress={() => onPress(product)}
       className="rounded-lg border border-outline-variant bg-surface overflow-hidden"
+      testID={`product-card-${product.id}`}
     >
       {/* 
         Image Section 
@@ -70,6 +71,7 @@ export const ProductCard = React.memo(({
           className="mt-xs items-center justify-center rounded bg-primary py-sm active:opacity-80"
           accessibilityRole="button"
           accessibilityLabel={`Add ${product.name} to cart`}
+          testID={`add-to-cart-${product.id}`}
         >
           <Text className="text-label-caps text-on-primary">ADD TO CART</Text>
         </Pressable>

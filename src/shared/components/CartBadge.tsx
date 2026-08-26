@@ -29,6 +29,7 @@ const CartBadge = () => {
       className="relative p-sm active:opacity-60 mr-sm"
       accessibilityRole="button"
       accessibilityLabel={`Cart with ${count} items`}
+      testID="cart-badge"
     >
       <Ionicons name="cart-outline" size={28} color="#111c2d" />
 

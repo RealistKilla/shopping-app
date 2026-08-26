@@ -10,11 +10,12 @@
         "./assets/*"
       ]
     },
-    "types": ["jest"]
+    "types": ["jest", "node"]
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    ".maestro/setup-maestro.ts",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "nativewind-env.d.ts"
