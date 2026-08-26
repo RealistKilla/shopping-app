@@ -28,6 +28,7 @@ export const ProductCard = React.memo(({
     <Pressable
       onPress={() => onPress(product)}
       className="rounded-lg border border-outline-variant bg-surface overflow-hidden"
+      testID={`product-card-${product.id}`}
     >
       {/* 
         Image Section 
@@ -70,6 +71,7 @@ export const ProductCard = React.memo(({
           className="mt-xs items-center justify-center rounded bg-primary py-sm active:opacity-80"
           accessibilityRole="button"
           accessibilityLabel={`Add ${product.name} to cart`}
+          testID={`add-to-cart-${product.id}`}
         >
           <Text className="text-label-caps text-on-primary">ADD TO CART</Text>
         </Pressable>

@@ -27,6 +27,7 @@ const AddToCartSection = ({ onPress, productName }: AddToCartSectionProps) => {
         className="w-full items-center justify-center rounded-lg bg-primary py-md active:opacity-80"
         accessibilityRole="button"
         accessibilityLabel={`Add ${productName} to cart`}
+        testID="product-view-add-to-cart"
       >
         <Text className="text-body-lg font-bold text-on-primary">
           Add to Cart

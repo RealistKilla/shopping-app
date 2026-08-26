@@ -19,6 +19,7 @@ export function QuantitySelector({
   onDecrement,
   onIncrement,
   disabled = false,
+  testID,
 }: QuantitySelectorProps) {
   return (
     <View className="flex-row items-center border border-outline-variant rounded-md overflow-hidden bg-surface">
@@ -29,6 +30,7 @@ export function QuantitySelector({
         className="w-8 h-8 items-center justify-center bg-surface active:bg-surface-dim disabled:opacity-50"
         accessibilityRole="button"
         accessibilityLabel="Decrease quantity"
+        testID={testID ? `${testID}-decrease` : undefined}
       >
         <Text className="text-body-lg text-on-surface-variant font-bold leading-none mb-1">
           -
@@ -49,6 +51,7 @@ export function QuantitySelector({
         className="w-8 h-8 items-center justify-center bg-surface active:bg-surface-dim disabled:opacity-50"
         accessibilityRole="button"
         accessibilityLabel="Increase quantity"
+        testID={testID ? `${testID}-increase` : undefined}
       >
         <Text className="text-body-lg text-on-surface-variant font-bold leading-none mb-1">
           +

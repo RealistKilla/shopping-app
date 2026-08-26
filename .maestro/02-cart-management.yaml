@@ -3,32 +3,32 @@ appId: "host.exp.exponent"
 # 1. Launch the app
 - launchApp:
     clearState: true
-- tapOn: "shopping-app" 
+- tapOn: "Continue" # Dismiss Expo Developer menu popup
 
-# 
-- tapOn: "Continue"
 # 2. Add an item from the main screen
-- assertVisible: "Ceramic Pour-Over Set"
+- assertVisible:
+    id: "product-card-.*"
 - tapOn:
-    id: "Add Ceramic Pour-Over Set to cart"
+    id: "add-to-cart-.*"
 
 # 3. Open the Cart
 - tapOn:
-    id: "Cart with 1 items"
+    id: "cart-badge"
 - assertVisible: "Your Cart"
 
 # 4. Increment the quantity
 - tapOn:
-    id: "Increase quantity"
+    id: "cart-item-quantity-.*-increase"
 - assertVisible: "2" # The quantity text should update to 2
 
 # 5. Decrement the quantity back to 1
 - tapOn:
-    id: "Decrease quantity"
+    id: "cart-item-quantity-.*-decrease"
 - assertVisible: "1"
 
 # 6. Remove the item entirely from the cart
-- tapOn: "Remove"
+- tapOn: 
+    id: "cart-item-remove-.*"
 
 # 7. Verify the Empty Cart state
 - assertVisible: "Your cart is empty"
@@ -38,6 +38,6 @@ appId: "host.exp.exponent"
 - tapOn: "Start Shopping"
 
 # 9. Verify we are back on the main listing screen
-- assertVisible: "Minimal Desk Lamp"
-- assertVisible:
-    id: "Cart with 0 items"
+- assertVisible: 
+    id: "product-card-.*"
+

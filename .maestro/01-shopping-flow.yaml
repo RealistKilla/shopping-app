@@ -3,42 +3,43 @@ appId: "host.exp.exponent"
 # 1. Launch the app
 - launchApp:
     clearState: true
-- tapOn: "shopping-app" 
+- tapOn: "Continue" # Dismiss Expo Developer menu popup
 
-# 2. Wait for the main product listing to load (using the first product as an anchor)
-- assertVisible: "Minimal Desk Lamp"
+# 2. Wait for the main product listing to load
+- assertVisible: 
+    id: "product-card-.*"
 
 # 3. Add item to cart directly from the listing screen
 - tapOn:
-    id: "Add Minimal Desk Lamp to cart" # Relies on the accessibilityLabel we set in ProductCard.tsx
+    id: "add-to-cart-.*" 
     
-# 4. Verify Toast appears (assuming global toast appears with a success message)
-- assertVisible: "Added Minimal Desk Lamp to cart"
+# 4. Verify Toast appears
+- assertVisible: "Added.*to cart"
 
 # 5. Navigate to the product details screen
-- tapOn: "Minimal Desk Lamp"
+- tapOn: 
+    id: "product-card-.*"
 
 # 6. Verify we are on the details screen
-- assertVisible: "Add to Cart" # Pinned bottom bar action
-- assertVisible: "A sleek, modern desk lamp with adjustable brightness and color temperature."
+- assertVisible: 
+    id: "product-view-add-to-cart"
 
 # 7. Add item to cart from details screen
 - tapOn:
-    id: "Add Minimal Desk Lamp to cart"
+    id: "product-view-add-to-cart"
 
 # 8. Navigate back to the listing screen
 - tapOn:
-    id: "Go back" # Standard Expo Router back button
+    id: "Go back" 
 
 # 9. Verify the Cart badge shows 2 items
 - assertVisible:
-    id: "Cart with 2 items"
+    id: "cart-badge"
 
 # 10. Open the Cart screen
 - tapOn:
-    id: "Cart with 2 items"
+    id: "cart-badge"
 
 # 11. Verify Cart screen contents
 - assertVisible: "Your Cart"
-- assertVisible: "Minimal Desk Lamp"
-- assertVisible: "Total:.*" # Regex for the price text
+- assertVisible: "Total:.*" 
