@@ -40,6 +40,7 @@ export const ProductCard = React.memo(({
         placeholder={{ blurhash: BLURHASH }}
         contentFit="cover"
         transition={200}
+        style={{ height: 200, width: 200 }}
         className="w-full aspect-[4/5] bg-surface-dim"
       />
 

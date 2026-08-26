@@ -30,6 +30,7 @@ const ProductInformation = ({ product }: ProductInformationProps) => {
         placeholder={{ blurhash: BLURHASH }}
         contentFit="cover"
         transition={200}
+        style={{ height: 400, width: 400 }}
         className="w-full aspect-square bg-surface-dim"
       />
 

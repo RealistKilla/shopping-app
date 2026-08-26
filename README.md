@@ -58,7 +58,7 @@ cd shopping-app
 yarn install
 ```
 
-### 3. Start the development server
+### 3. Start the development server (Expo Go)
 
 Start the Expo bundler:
 
@@ -69,7 +69,19 @@ yarn start
 Once the bundler is running, you can press the following keys in your terminal:
 - **`i`** to open the app in the iOS Simulator.
 - **`a`** to open the app in the Android Emulator.
-- Or, scan the **QR code** printed in the terminal using the Expo Go app on your physical iOS/Android device.
+- Or, test on a physical device. **Requirement:** You must explicitly download the **Expo Go** app from the Apple App Store or Google Play Store. Once downloaded, scan the **QR code** printed in the terminal using your device's camera (iOS) or directly inside the Expo Go app (Android).
+
+### 4. Build Native Apps Locally (Optional)
+
+If you want to compile and run the actual native Android or iOS application locally (instead of using the Expo Go client), use the provided build scripts:
+
+```bash
+yarn build:android
+yarn build:ios
+```
+
+> [!WARNING]
+> **Android Build Caveat (WSL/Linux):** If you are building the Android app locally in a headless environment like WSL without the full Android Studio GUI, the build may fail with a `LicenceNotAcceptedException`. You must accept the Android SDK licenses before compiling. You can do this by running `yes | sdkmanager --licenses` via the Android command-line tools, or by copying your accepted `licenses` directory from your Windows host over to your WSL Android SDK folder.
 
 ---
 
