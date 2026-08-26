@@ -7,18 +7,18 @@ appId: "host.exp.exponent"
 
 # 2. Wait for the main product listing to load
 - assertVisible: 
-    id: "product-card-.*"
+    id: ".*product-card-.*"
 
 # 3. Add item to cart directly from the listing screen
 - tapOn:
-    id: "add-to-cart-.*" 
+    id: ".*add-to-cart-.*" 
     
 # 4. Verify Toast appears
 - assertVisible: "Added.*to cart"
 
 # 5. Navigate to the product details screen
 - tapOn: 
-    id: "product-card-.*"
+    id: ".*product-card-.*"
 
 # 6. Verify we are on the details screen
 - assertVisible: 
