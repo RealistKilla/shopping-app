@@ -34,6 +34,16 @@ I've selected a lightweight, modern stack designed for speed, developer experien
 - **[@expo/vector-icons](https://docs.expo.dev/guides/icons/)**
   - **Reason:** A reliable, pre-bundled set of scalable vector icons (using Ionicons for the cart badge and quantity selectors) without the need to manage custom SVG paths or link external font assets.
 
+### Trade-Offs & Considerations
+
+While this stack optimizes for developer velocity, it does come with a few architectural trade-offs:
+
+- **Expo Ecosystem Lock-in:** 
+  Expo provides phenomenal abstractions (EAS, OTA updates, prebuilds), but leaning heavily into Expo Router and Expo-managed infrastructure creates a degree of vendor lock-in. If the app eventually requires deeply customized native modules without existing Expo Config Plugins, maintaining the Continuous Native Generation (CNG) pipeline can introduce significant friction compared to a bare React Native setup.
+
+- **NativeWind Compatibility Quirks:** 
+  NativeWind bridges Tailwind and React Native via a complex Babel transformation and CSS interop layer. While excellent for standard `View` and `Text` components, it occasionally clashes with third-party native libraries. For example, during development, I experienced rendering bugs where NativeWind failed to accurately pass explicit width/height styles down to the underlying `expo-image` layout engine, requiring us to bypass the utility classes and fallback to inline `style={{...}}` dimensions to fix the image rendering.
+
 ---
 
 ## 🚀 Installation & Setup
