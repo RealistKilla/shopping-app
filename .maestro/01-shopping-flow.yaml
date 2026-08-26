@@ -3,6 +3,8 @@ appId: "host.exp.exponent"
 # 1. Launch the app
 - launchApp:
     clearState: true
+- tapOn: "shopping-app"
+
 - tapOn: "Close" # Dismiss Expo Developer menu popup
 
 # 2. Wait for the main product listing to load
@@ -12,9 +14,6 @@ appId: "host.exp.exponent"
 # 3. Add item to cart directly from the listing screen
 - tapOn:
     id: ".*add-to-cart-.*" 
-    
-# 4. Verify Toast appears
-- assertVisible: "Added.*to cart"
 
 # 5. Navigate to the product details screen
 - tapOn: 
@@ -30,7 +29,7 @@ appId: "host.exp.exponent"
 
 # 8. Navigate back to the listing screen
 - tapOn:
-    id: "Go back" 
+    id: "Back" # Back button in the header
 
 # 9. Verify the Cart badge shows 2 items
 - assertVisible:

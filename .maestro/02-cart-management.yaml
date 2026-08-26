@@ -3,6 +3,8 @@ appId: "host.exp.exponent"
 # 1. Launch the app
 - launchApp:
     clearState: true
+- tapOn: "shopping-app"
+
 - tapOn: "Close" # Dismiss Expo Developer menu popup
 
 # 2. Add an item from the main screen
@@ -14,7 +16,7 @@ appId: "host.exp.exponent"
 # 3. Open the Cart
 - tapOn:
     id: "cart-badge"
-- assertVisible: "Your Cart"
+- assertVisible: "Shopping Cart"
 
 # 4. Increment the quantity
 - tapOn:
@@ -32,7 +34,7 @@ appId: "host.exp.exponent"
 
 # 7. Verify the Empty Cart state
 - assertVisible: "Your cart is empty"
-- assertVisible: "Looks like you haven't added anything yet."
+- assertVisible: "Looks like you haven't added anything to your cart yet."
 
 # 8. Use the empty state action to return home
 - tapOn: "Start Shopping"
