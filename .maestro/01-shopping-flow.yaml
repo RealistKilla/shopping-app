@@ -3,7 +3,7 @@ appId: "host.exp.exponent"
 # 1. Launch the app
 - launchApp:
     clearState: true
-- tapOn: "Continue" # Dismiss Expo Developer menu popup
+- tapOn: "Close" # Dismiss Expo Developer menu popup
 
 # 2. Wait for the main product listing to load
 - assertVisible: 
