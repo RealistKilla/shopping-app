@@ -128,7 +128,14 @@ I use **Jest** alongside `@testing-library/react-native` to test state, hooks, a
 ### End-to-End Testing (Maestro)
 I use **Maestro** for robust, black-box E2E testing. Unlike traditional Detox tests, Maestro tests are written in easy-to-read YAML flows located in the `.maestro/` directory.
 - **Scope:** Tests the most critical conversion paths, such as navigating the product grid, adding items to the cart, modifying quantities, removing items, and verifying global Toast notifications.
-- **Run E2E Tests:** *(Requires the Maestro CLI and a running Simulator/Emulator)*
+- **Install Maestro:**
+  ```bash
+  yarn setup:maestro
+  ```
+- **Run E2E Tests:** *(Requires a running Simulator/Emulator and your development build running)*
   ```bash
   yarn test:e2e
   ```
+
+> [!NOTE]
+> **CI/CD Integration:** I have included a `.github/workflows/e2e.yml` GitHub Action demonstrating how these tests would integrate with Maestro Cloud in a production environment. For the purpose of this assessment, no API keys have been provided, so the workflow is set to gracefully pass. Please run the tests locally to verify them.

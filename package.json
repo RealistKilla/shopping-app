@@ -10,7 +10,8 @@
     "lint": "expo lint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:e2e": "maestro test .maestro/"
+    "test:e2e": "maestro test .maestro/",
+    "setup:maestro": "curl -Ls \"https://get.maestro.mobile.dev\" | bash"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
