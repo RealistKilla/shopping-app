@@ -1,8 +1,9 @@
-appId: ${APP_ID}
+appId: "host.exp.exponent"
 ---
 # 1. Launch the app
 - launchApp:
     clearState: true
+- tapOn: "shopping-app" 
 
 # 2. Wait for the main product listing to load (using the first product as an anchor)
 - assertVisible: "Minimal Desk Lamp"

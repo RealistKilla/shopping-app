@@ -1,9 +1,12 @@
-appId: ${APP_ID}
+appId: "host.exp.exponent"
 ---
 # 1. Launch the app
 - launchApp:
     clearState: true
+- tapOn: "shopping-app" 
 
+# 
+- tapOn: "Continue"
 # 2. Add an item from the main screen
 - assertVisible: "Ceramic Pour-Over Set"
 - tapOn:
