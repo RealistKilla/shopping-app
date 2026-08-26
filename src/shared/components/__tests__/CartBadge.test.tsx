@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import { CartBadge } from '../CartBadge';
+import CartBadge from '../CartBadge';
 import { useCartStore } from '@/features/cart/store';
 
 // Mock expo-router

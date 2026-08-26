@@ -25,7 +25,7 @@ describe('useCartStore', () => {
     const { result } = renderHook(() => useCartStore());
 
     act(() => {
-      result.current.addItem(mockProduct);
+      result.current.add(mockProduct);
     });
 
     expect(result.current.items[mockProduct.id]).toBeDefined();
@@ -37,29 +37,29 @@ describe('useCartStore', () => {
     const { result } = renderHook(() => useCartStore());
 
     act(() => {
-      result.current.addItem(mockProduct);
-      result.current.addItem(mockProduct);
+      result.current.add(mockProduct);
+      result.current.add(mockProduct);
     });
 
     expect(result.current.items[mockProduct.id].quantity).toBe(2);
   });
 
-  it('should update quantity of an existing item', () => {
+  it('should increment quantity explicitly using incrementQty', () => {
     const { result } = renderHook(() => useCartStore());
 
     act(() => {
-      result.current.addItem(mockProduct);
-      result.current.updateQuantity(mockProduct.id, 5);
+      result.current.add(mockProduct);
+      result.current.incrementQty(mockProduct.id);
     });
 
-    expect(result.current.items[mockProduct.id].quantity).toBe(5);
+    expect(result.current.items[mockProduct.id].quantity).toBe(2);
   });
 
   it('should ignore quantity updates for non-existent items', () => {
     const { result } = renderHook(() => useCartStore());
 
     act(() => {
-      result.current.updateQuantity('non-existent', 5);
+      result.current.incrementQty('non-existent');
     });
 
     expect(result.current.items['non-existent']).toBeUndefined();
@@ -69,8 +69,8 @@ describe('useCartStore', () => {
     const { result } = renderHook(() => useCartStore());
 
     act(() => {
-      result.current.addItem(mockProduct);
-      result.current.removeItem(mockProduct.id);
+      result.current.add(mockProduct);
+      result.current.remove(mockProduct.id);
     });
 
     expect(result.current.items[mockProduct.id]).toBeUndefined();
@@ -80,8 +80,8 @@ describe('useCartStore', () => {
     const { result } = renderHook(() => useCartStore());
 
     act(() => {
-      result.current.addItem(mockProduct);
-      result.current.clearCart();
+      result.current.add(mockProduct);
+      result.current.clear();
     });
 
     expect(result.current.items).toEqual({});
