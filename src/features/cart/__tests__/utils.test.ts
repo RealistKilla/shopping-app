@@ -1,30 +1,36 @@
-import { selectCartCount, selectCartTotal, selectCartItemsArray } from '../utils';
+import { createProductId } from '@/shared/catalog/utils';
 import { type CartStore } from '../types';
+import { selectCartCount, selectCartItemsArray, selectCartTotal } from '../utils';
+
+const p1Id = createProductId('p-1');
+const p2Id = createProductId('p-2');
 
 describe('Cart Utils / Selectors', () => {
   const mockState: CartStore = {
     items: {
-      'p-1': {
-        product: { id: 'p-1', name: 'Product 1', price: 10, description: '', image: '' },
+      [p1Id]: {
+        product: { id: p1Id, name: 'Product 1', price: 10, description: '', image: '' },
         quantity: 2,
       },
-      'p-2': {
-        product: { id: 'p-2', name: 'Product 2', price: 25, description: '', image: '' },
+      [p2Id]: {
+        product: { id: p2Id, name: 'Product 2', price: 25, description: '', image: '' },
         quantity: 1,
       },
     },
-    addItem: jest.fn(),
-    removeItem: jest.fn(),
-    updateQuantity: jest.fn(),
-    clearCart: jest.fn(),
+    add: jest.fn(),
+    remove: jest.fn(),
+    incrementQty: jest.fn(),
+    decrementQty: jest.fn(),
+    clear: jest.fn(),
   };
 
   const emptyState: CartStore = {
     items: {},
-    addItem: jest.fn(),
-    removeItem: jest.fn(),
-    updateQuantity: jest.fn(),
-    clearCart: jest.fn(),
+    add: jest.fn(),
+    remove: jest.fn(),
+    incrementQty: jest.fn(),
+    decrementQty: jest.fn(),
+    clear: jest.fn(),
   };
 
   describe('selectCartCount', () => {
@@ -56,8 +62,8 @@ describe('Cart Utils / Selectors', () => {
     it('returns an array of cart items', () => {
       const items = selectCartItemsArray(mockState);
       expect(items).toHaveLength(2);
-      expect(items[0].product.id).toBe('p-1');
-      expect(items[1].product.id).toBe('p-2');
+      expect(items[0].product.id).toBe(p1Id);
+      expect(items[1].product.id).toBe(p2Id);
     });
   });
 });
