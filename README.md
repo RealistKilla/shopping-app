@@ -32,7 +32,7 @@ I've selected a lightweight, modern stack designed for speed, developer experien
   - **Reason:** Far superior to the standard React Native `<Image>` component. It offers aggressive disk caching, faster load times, and built-in support for Blurhashes to show skeleton placeholders before images fully load.
 
 - **[react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)**
-  - **Reason:** Provides a comprehensive set of scalable vector icons (using Ionicons for the cart badge and quantity selectors). *Note: Due to custom font linking requirements, this library necessitates compiling the native app and does not render inside Expo Go.*
+  - **Reason:** Provides a comprehensive set of scalable vector icons (using Ionicons for the cart badge and quantity selectors). As detailed in [Expo's blog](https://expo.dev/blog/moving-away-from-expo-vector-icons), selecting a standalone icon library over `@expo/vector-icons` significantly reduces the final app bundle size by not bundling every font family by default. *Note: Due to custom font linking requirements, this library necessitates compiling the native app and does not render inside Expo Go.*
 
 ### Trade-Offs & Considerations
 
@@ -54,6 +54,7 @@ While this stack optimizes for developer velocity, it does come with a few archi
 - [Node.js](https://nodejs.org/en/) (LTS recommended)
 - [Yarn](https://yarnpkg.com/)
 - An iOS Simulator (Mac only) or Android Emulator installed, OR the Expo Go app on your physical device.
+- **Java 21 SDK** (Required for local native Android builds on Windows. Newer versions like Java 22+ may cause strict Gradle daemon crashes).
 
 ### 1. Clone the repository
 
@@ -93,9 +94,6 @@ yarn build:android
 yarn build:ios
 ```
 
-> [!WARNING]
-> **Android Build Caveat (NDK Version):** Android builds strictly require **NDK 26.x** (and no higher). Newer versions like NDK 27 introduce an XML format that is currently incompatible with React Native's C++ CMake compiler and will crash the build.
-> 
 > **Android Build Caveat (WSL/Linux):** If you are building the Android app locally in a headless environment like WSL without the full Android Studio GUI, the build may fail with a `LicenceNotAcceptedException`. You must accept the Android SDK licenses before compiling. You can do this by running `yes | sdkmanager --licenses` via the Android command-line tools, or by copying your accepted `licenses` directory from your Windows host over to your WSL Android SDK folder.
 
 ---
