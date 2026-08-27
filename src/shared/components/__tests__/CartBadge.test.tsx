@@ -1,8 +1,9 @@
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
-import CartBadge from '../CartBadge';
 import { useCartStore } from '@/features/cart/store';
+import { createProductId } from '@/shared/catalog/utils';
+import { fireEvent, render } from '@testing-library/react-native';
+import CartBadge from '../CartBadge';
 
+const p1Id = createProductId('p-1');
 // Mock expo-router
 const mockPush = jest.fn();
 jest.mock('expo-router', () => ({
@@ -10,9 +11,7 @@ jest.mock('expo-router', () => ({
 }));
 
 // Mock vector icons
-jest.mock('@expo/vector-icons', () => ({
-  Ionicons: 'Ionicons',
-}));
+jest.mock('@react-native-vector-icons/ionicons/static', () => 'Ionicons');
 
 describe('CartBadge Component', () => {
   beforeEach(() => {
@@ -38,7 +37,7 @@ describe('CartBadge Component', () => {
     // Inject mock state with 3 items
     useCartStore.setState({
       items: {
-        '1': { product: { id: '1', name: 'A', price: 10, description: '', image: '' }, quantity: 3 }
+        [p1Id]: { product: { id: p1Id, name: 'A', price: 10, description: '', image: '' }, quantity: 3 }
       }
     });
 

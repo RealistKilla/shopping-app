@@ -8,7 +8,8 @@
     "scheme": "shoppingapp",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.tylerthomas.shoppingapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +26,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      "@react-native-vector-icons/ionicons",
       "expo-router",
       [
         "expo-splash-screen",
