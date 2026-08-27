@@ -31,8 +31,8 @@ I've selected a lightweight, modern stack designed for speed, developer experien
 - **[Expo Image](https://docs.expo.dev/versions/latest/sdk/image/)**
   - **Reason:** Far superior to the standard React Native `<Image>` component. It offers aggressive disk caching, faster load times, and built-in support for Blurhashes to show skeleton placeholders before images fully load.
 
-- **[@expo/vector-icons](https://docs.expo.dev/guides/icons/)**
-  - **Reason:** A reliable, pre-bundled set of scalable vector icons (using Ionicons for the cart badge and quantity selectors) without the need to manage custom SVG paths or link external font assets.
+- **[react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)**
+  - **Reason:** Provides a comprehensive set of scalable vector icons (using Ionicons for the cart badge and quantity selectors). *Note: Due to custom font linking requirements, this library necessitates compiling the native app and does not render inside Expo Go.*
 
 ### Trade-Offs & Considerations
 
@@ -81,6 +81,9 @@ Once the bundler is running, you can press the following keys in your terminal:
 - **`a`** to open the app in the Android Emulator.
 - Or, test on a physical device. **Requirement:** You must explicitly download the **Expo Go** app from the Apple App Store or Google Play Store. Once downloaded, scan the **QR code** printed in the terminal using your device's camera (iOS) or directly inside the Expo Go app (Android).
 
+> [!WARNING]
+> **Expo Go Incompatibility:** The app uses `react-native-vector-icons` which requires custom native fonts to be bundled. Because Expo Go is a pre-compiled app, it cannot load these custom fonts, and the icons will appear as crossed-out boxes. **To see the icons display correctly, you must bypass Expo Go and run the local build command below.**
+
 ### 4. Build Native Apps Locally (Optional)
 
 If you want to compile and run the actual native Android or iOS application locally (instead of using the Expo Go client), use the provided build scripts:
@@ -91,6 +94,8 @@ yarn build:ios
 ```
 
 > [!WARNING]
+> **Android Build Caveat (NDK Version):** Android builds strictly require **NDK 26.x** (and no higher). Newer versions like NDK 27 introduce an XML format that is currently incompatible with React Native's C++ CMake compiler and will crash the build.
+> 
 > **Android Build Caveat (WSL/Linux):** If you are building the Android app locally in a headless environment like WSL without the full Android Studio GUI, the build may fail with a `LicenceNotAcceptedException`. You must accept the Android SDK licenses before compiling. You can do this by running `yes | sdkmanager --licenses` via the Android command-line tools, or by copying your accepted `licenses` directory from your Windows host over to your WSL Android SDK folder.
 
 ---
