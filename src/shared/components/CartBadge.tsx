@@ -9,7 +9,7 @@
  */
 
 import { useCartCount } from "@/features/cart/hooks/useCart";
-import { Ionicons } from "@expo/vector-icons";
+import Ionicons from "@react-native-vector-icons/ionicons/static";
 import { useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 

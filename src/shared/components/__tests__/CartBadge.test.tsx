@@ -11,9 +11,7 @@ jest.mock('expo-router', () => ({
 }));
 
 // Mock vector icons
-jest.mock('@react-native-vector-icons/ionicons/static', () => ({
-  Ionicons: 'Ionicons',
-}));
+jest.mock('@react-native-vector-icons/ionicons/static', () => 'Ionicons');
 
 describe('CartBadge Component', () => {
   beforeEach(() => {

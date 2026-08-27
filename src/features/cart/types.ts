@@ -119,5 +119,5 @@ export interface QuantitySelectorProps {
   /** Disable the entire selector (e.g. while mutating) */
   disabled?: boolean;
   /** Optional testID for E2E testing */
-  testID?: string;
+  testID: string;
 }
